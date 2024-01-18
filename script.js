@@ -160,5 +160,6 @@ function checkReg() {
 
   addUser();
   document.getElementById("succsessreg").classList.add("visible");
+  document.getElementById("wrong-user").classList.remove("visible");
   document.getElementById("regform").reset();
 };
