@@ -60,6 +60,7 @@ function addUser() {
 }
 
 function checkLogin() {
+  /*
   $(".sign-in-container input").each(function () {
     let fieldValue = $(this).val();
     if (fieldValue.trim() === '') {
@@ -69,21 +70,40 @@ function checkLogin() {
       $(this).parent(".input-box").removeClass('error-highlight');
     }
   });
+ */
 
-  let login = document.getElementById("loginemail").value;
-  let password = document.getElementById("loginpassword").value;
+  const loginform = document.getElementById("loginform");
+  let inputs = loginform.getElementsByTagName("input");
 
-  for (let i = 0; i < users.length; i++) {
-    if (login === users[i].email && password === users[i].password) {
-      document.getElementById("wrong-user").classList.remove("visible");
-      document.getElementById("succsessreg").classList.remove("visible");
-      document.getElementById("loginform").reset();
-      alert('Welcome ' + users[i].name);
-      break;
+  for (const input of inputs) {
+    let login = input.value;
+    if (login === "") {
+      input.closest(".checkfield").classList.add("error-highlight");
+      return;
     } else {
-      document.getElementById("wrong-user").classList.add("visible");
+      input.closest(".checkfield").classList.remove("error-highlight")
+      if (input.classList.contains('passwfield')) {
+        let login = document.getElementById("loginemail").value;
+        let password = document.getElementById("loginpassword").value;
+
+        for (let i = 0; i < users.length; i++) {
+          if (login === users[i].email && password === users[i].password) {
+            document.getElementById("wrong-user").classList.remove("visible");
+            document.getElementById("succsessreg").classList.remove("visible");
+            document.getElementById("loginform").reset();
+            alert('Welcome ' + users[i].name);
+            break;
+          } else {
+            document.getElementById("wrong-user").classList.add("visible");
+          }
+        }
+      }
     }
   }
+
+
+
+
 };
 
 function checkReg() {
