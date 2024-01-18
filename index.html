@@ -13,88 +13,105 @@
 
 <body>
     <div class="container" id="container">
-        <div class="form-container sign-in-container">
-            <form>
-                <h1>Login your Account</h1>
-                <div class="input-box">
-                    <label>Email</label>
-                    <input id="loginemail" type="email" placeholder="Enter your Name here"  />
-                    <span class="error-box">Please, fill this field</span>
-                </div>
+        <div class="forms-container">
+            <div class="form-container sign-in-container">
+                <form id="loginform">
+                    <div class="image-wrapper"><img src="assets/Login-page-img.svg" alt=""></div>
+                    <h1>Login your Account</h1>
+                    
+                    <span id="succsessreg" class="succsess-box">Thank you for registration, you can sign-in now</span>
 
-                <div class="input-box extramargin">
-                    <label>Password</label>
-                    <input id="loginpassword" type="password" placeholder="Enter your Password here"  />
-                    <span class="error-box">Please, fill this field</span>
-                </div>
-                <span class="error-box">Please, fill this field</span>
-
-                <a class="button extramargin" onclick="checkLogin();">Login Here</a>
-
-                <div class="or-seperator">- OR -</div>
-
-                <div class="buttom-text">Create an account? <a class="signbutton" id="signUp">Sign-Up</a></div>
-            </form>
-        </div>
-        <div class="form-container sign-up-container">
-            <form>
-                <h1>Create your Account</h1>
-                <div class="input-box extramargin">
-                    <label>Name</label>
-                    <input type="text" placeholder="Enter your Name here"  />
-                    <span class="error-box">Please, fill this field</span>
-                </div>
-
-                <div class="input-box">
-                    <label>Email</label>
-                    <input type="email" placeholder="Enter your Email here"  />
-                    <span class="error-box">Please, fill this field</span>
-                </div>
-
-                <div class="input-box">
-                    <label>Password</label>
-                    <input type="password" placeholder="Enter your Password here"  />
-                    <span class="error-box">Please, fill this field</span>
-                </div>
-
-                <div class="column">
-                    <div class="input-box age-box">
-                        <label>Age</label>
-                        <input type="text" placeholder="18"  />
+                    <div class="input-box">
+                        <label>Email</label>
+                        <input id="loginemail" type="email" placeholder="Enter your Name here" />
                         <span class="error-box">Please, fill this field</span>
                     </div>
-                    <div class="gender-box">
-                        <label>Gender</label>
-                        <div class="gender-option">
-                            <div class="gender">
-                                <input type="radio" id="check-male" name="gender" checked />
-                                <label for="check-male">Male</label>
-                            </div>
-                            <div class="gender">
-                                <input type="radio" id="check-female" name="gender" />
-                                <label for="check-female">Female</label>
+
+                    <div class="input-box extramargin">
+                        <label>Password</label>
+                        <input id="loginpassword" type="password" placeholder="Enter your Password here" />
+                        <span class="error-box">Please, fill this field</span>
+                    </div>
+                    <span id="wrong-user" class="error-box" style="text-align: center;">Wrong login or password</span>
+
+                    <a class="button extramargin" onclick="checkLogin();">Login Here</a>
+
+                    <div class="or-seperator">- OR -</div>
+
+                    <div class="buttom-text">Create an account? <a class="signbutton" id="signUp">Sign-Up</a></div>
+                </form>
+            </div>
+            <div class="form-container sign-up-container">
+                <form id="regform">
+                    <div class="image-wrapper"><img src="assets/signup-page-img.svg" alt=""></div>
+                    <h1>Create your Account</h1>
+                    
+                    <div class="checkfield input-box extramargin">
+                        <label>Name</label>
+                        <input id="name" type="text" placeholder="Enter your Name here" />
+                        <span class="error-box">Please, fill this field</span>
+                    </div>
+
+                    <div class="checkfield input-box">
+                        <label>Email</label>
+                        <input id="email" class="emailfield" type="email" placeholder="Enter your Email here" />
+                        <span class="error-box">Please, fill this field</span>
+                        <span id="emailvalid" class="valid-box">Please provide a valid email address</span>
+                    </div>
+
+                    <div class="checkfield input-box">
+                        <label>Password</label>
+                        <input id="password" class="passwfield" type="password"
+                            placeholder="Enter your Password here" />
+                        <span class="error-box">Please, fill this field</span>
+                        <span id="passwvalid" class="valid-box">Please provide a valid password</span>
+                    </div>
+
+                    <div class="column">
+                        <div class="checkfield input-box age-box">
+                            <label>Age</label>
+                            <input id="age" type="number" placeholder="18" />
+                            <span class="error-box">Please, fill this field</span>
+                        </div>
+                        <div class="gender-box">
+                            <label>Gender</label>
+                            <div class="gender-option">
+                                <div class="checkfield gender">
+                                    <input type="radio" id="check-male" name="gender" checked />
+                                    <label for="check-male">Male</label>
+                                </div>
+                                <div class="checkfield gender">
+                                    <input type="radio" id="check-female" name="gender" />
+                                    <label for="check-female">Female</label>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <a class="button" onclick="checkReg();">Sign-up</a>
+                    <a class="button" onclick="checkReg();">Sign-up</a>
 
-                <div class="or-seperator">- OR -</div>
+                    <div class="or-seperator">- OR -</div>
 
-                <div class="buttom-text">Already have an account? <a class="signbutton" id="signIn">Login</a></div>
-            </form>
-        </div>
-        
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <img src="assets/Login-page-img.svg" alt=""> 
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <img src="assets/signup-page-img.svg" alt="">
+                    <div class="buttom-text">Already have an account? <a class="signbutton" id="signIn">Login</a></div>
+                </form>
+            </div>
+
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <img src="assets/Login-page-img.svg" alt="">
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <img src="assets/signup-page-img.svg" alt="">
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="personal-page">
+            <div class="name-field">Name</div>
+            <div class="email-field">mail@gmail.com</div>
+            <div class="age-field">24</div>
+            <div class="gender-field">Male</div>
         </div>
     </div>
 </body>

@@ -142,20 +142,45 @@ form .column {
 
 input[type="radio"] {
     display: none;
-    
+
 }
 
-.error-box{
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.error-box {
     display: none;
     text-wrap: nowrap;
     color: #ff0000;
 }
 
-.error-highlight .error-box{
+.valid-box {
+    display: none;
+    text-wrap: nowrap;
+    color: #ff0000;
+}
+
+.succsess-box {
+    display: none;
+    color: #32af00;
+}
+
+.visible {
     display: block;
 }
 
-.error-highlight input{
+.input-box:has(> span.visible) input {
+    border-color: #ff0000;
+}
+
+.error-highlight .error-box {
+    display: block;
+}
+
+.error-highlight input {
     border-color: #ff0000;
 }
 
@@ -172,7 +197,7 @@ input[type="radio"]+*::before {
     border-width: 0.1rem;
     border-color: #DEE3E7;
     transition: all 0.3s ease;
-    
+
 }
 
 input[type="radio"]:checked+*::before {
@@ -335,4 +360,69 @@ input[type="radio"]:checked+*::before {
 
 .container.right-panel-active .overlay-right {
     transform: translateX(0);
+}
+
+.personal-page {
+    display: none;
+}
+
+.image-wrapper {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .container {
+        max-width: 94%;
+        min-height: 90%;
+    }
+
+    .forms-container {
+        width: 200%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .overlay-container {
+        display: none;
+    }
+
+    .sign-in-container {
+        width: 100%;
+    }
+
+    .sign-up-container {
+        width: 100%;
+    }
+
+    .form-container {
+        position: relative;
+    }
+
+    .container.right-panel-active .sign-up-container {
+        transform: translateX(-100%);
+    }
+
+    .container.right-panel-active .sign-in-container {
+        transform: translateX(-100%);
+    }
+
+    .image-wrapper {
+        display: block;
+    }
+
+    .image-wrapper img {
+        max-width: 200px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    form{
+        padding: 0 24px;
+    }
+    .image-wrapper img {
+        max-width: 140px;
+        margin-bottom: 20px;
+    }
 }
